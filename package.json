@@ -1,0 +1,18 @@
+{
+  "name": "sunbay-official-site",
+  "version": "1.0.0",
+  "description": "SUNBAY Payment Infrastructure Official Website",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "payment",
+    "infrastructure",
+    "iso",
+    "isv",
+    "terminals"
+  ],
+  "author": "SUNBAY",
+  "license": "MIT"
+}
