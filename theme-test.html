@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test - SUNBAY</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .test-container {
+            padding: 100px 80px;
+            min-height: 100vh;
+        }
+        .test-section {
+            margin-bottom: 60px;
+        }
+        .test-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        .test-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .color-boxes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .color-box {
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+        .color-box.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        .color-box.secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .color-box.bg-light {
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+        .color-box.bg-white {
+            background: var(--bg-white);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+        .test-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .test-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(255, 107, 53, 0.3);
+        }
+        .theme-info {
+            position: fixed;
+            top: 100px;
+            right: 40px;
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+        }
+        .theme-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        .theme-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+        .theme-info .current-theme {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit">SUNBAY</a></div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">Back to Home</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="theme-icon">🌙</span>
+                </button>
+                <a href="contact.html" class="btn-secondary">Contact Sales</a>
+                <a href="#login" class="btn-primary">Log In</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="test-container">
+        <div class="theme-info">
+            <h3>Current Theme</h3>
+            <div class="current-theme" id="current-theme-display">Light</div>
+            <p>Click the button in navbar to toggle</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Theme Toggle Test Page</h2>
+            <p>This page is designed to test the dark/light theme functionality. Click the theme toggle button in the navigation bar to switch between themes.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Color Palette</h2>
+            <div class="color-boxes">
+                <div class="color-box primary">
+                    <strong>Primary</strong>
+                    <p>Brand Color</p>
+                </div>
+                <div class="color-box secondary">
+                    <strong>Secondary</strong>
+                    <p>Accent Color</p>
+                </div>
+                <div class="color-box bg-light">
+                    <strong>BG Light</strong>
+                    <p>Light Background</p>
+                </div>
+                <div class="color-box bg-white">
+                    <strong>BG White</strong>
+                    <p>Main Background</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Interactive Cards</h2>
+            <p>Hover over these cards to see the theme-aware hover effects:</p>
+            <div class="test-card">
+                <h3>Test Card 1</h3>
+                <p>This card demonstrates the hover effects in both light and dark themes. The border color changes to the primary brand color on hover.</p>
+            </div>
+            <div class="test-card">
+                <h3>Test Card 2</h3>
+                <p>Notice how the shadow and transform effects work seamlessly in both themes, providing a consistent user experience.</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Buttons</h2>
+            <div style="display: flex; gap: 20px; margin-top: 20px;">
+                <button class="btn-primary-large">Primary Button</button>
+                <button class="btn-secondary-large">Secondary Button</button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Typography</h2>
+            <h1 style="color: var(--text-primary);">Heading 1 - Primary Text</h1>
+            <h2 style="color: var(--text-primary);">Heading 2 - Primary Text</h2>
+            <h3 style="color: var(--text-primary);">Heading 3 - Primary Text</h3>
+            <p style="color: var(--text-secondary);">Body text - Secondary color for better readability</p>
+            <p style="color: var(--text-primary);">Body text - Primary color for emphasis</p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Update theme display
+        const updateThemeDisplay = () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const display = document.getElementById('current-theme-display');
+            if (display) {
+                display.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+            }
+        };
+
+        // Watch for theme changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'data-theme') {
+                    updateThemeDisplay();
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true
+        });
+
+        // Initial update
+        updateThemeDisplay();
+    </script>
+</body>
+</html>

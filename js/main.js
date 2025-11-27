@@ -6,14 +6,14 @@
 const initTheme = () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeLabel(savedTheme);
+    updateThemeIcon(savedTheme);
 };
 
-// Update theme label text
-const updateThemeLabel = (theme) => {
-    const label = document.getElementById('theme-label');
-    if (label) {
-        label.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+// Update theme icon
+const updateThemeIcon = (theme) => {
+    const icon = document.getElementById('theme-icon');
+    if (icon) {
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
 };
 
@@ -24,20 +24,19 @@ const toggleTheme = () => {
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeLabel(newTheme);
-    
-    // Add a subtle animation effect
-    document.body.style.transition = 'background 0.3s ease, color 0.3s ease';
+    updateThemeIcon(newTheme);
 };
 
 // Initialize theme on page load
-initTheme();
-
-// Add event listener to theme toggle button
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    
+    // Add event listener to theme toggle button
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
