@@ -1,3 +1,44 @@
+// ========================================
+// THEME TOGGLE FUNCTIONALITY
+// ========================================
+
+// Initialize theme from localStorage or default to light
+const initTheme = () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeLabel(savedTheme);
+};
+
+// Update theme label text
+const updateThemeLabel = (theme) => {
+    const label = document.getElementById('theme-label');
+    if (label) {
+        label.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+};
+
+// Toggle theme
+const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeLabel(newTheme);
+    
+    // Add a subtle animation effect
+    document.body.style.transition = 'background 0.3s ease, color 0.3s ease';
+};
+
+// Initialize theme on page load
+initTheme();
+
+// Add event listener to theme toggle button
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

@@ -20,6 +20,145 @@
     --gradient-section: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(139, 127, 217, 0.05) 100%);
 }
 
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --primary-color: #FF6B35;
+    --primary-hover: #FF8555;
+    --secondary-color: #A89FE8;
+    --text-primary: #E8E8E8;
+    --text-secondary: #B0B0B0;
+    --border-color: #2A2A2A;
+    --bg-light: #1A1A1A;
+    --bg-white: #0F0F0F;
+    --success-color: #00FF3C;
+    --gradient-brand: linear-gradient(135deg, #FF6B35 0%, #FF8555 35%, #A89FE8 65%, #8B7FD9 100%);
+    --gradient-hero: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
+    --gradient-section: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(139, 127, 217, 0.1) 100%);
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] body {
+    background: #0F0F0F;
+    color: #E8E8E8;
+}
+
+[data-theme="dark"] .navbar {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 107, 53, 0.95) 0%,
+        rgba(255, 133, 85, 0.95) 35%,
+        rgba(168, 159, 232, 0.95) 65%,
+        rgba(139, 127, 217, 0.95) 100%
+    );
+    box-shadow: 0 4px 20px -5px rgba(255, 107, 53, 0.4);
+}
+
+[data-theme="dark"] .mega-menu {
+    background: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8), 0 30px 60px -30px rgba(255, 107, 53, 0.3);
+}
+
+[data-theme="dark"] .mega-link:hover {
+    background: #0F0F0F;
+}
+
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .page-header {
+    background: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
+}
+
+[data-theme="dark"] .hero-section::before,
+[data-theme="dark"] .page-header::before {
+    background: var(--gradient-brand);
+    opacity: 0.15;
+}
+
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .capability-block,
+[data-theme="dark"] .hardware-item,
+[data-theme="dark"] .testimonial-item {
+    background: #1A1A1A;
+    border-color: #2A2A2A;
+}
+
+[data-theme="dark"] .value-card:hover,
+[data-theme="dark"] .solution-card:hover,
+[data-theme="dark"] .capability-block:hover,
+[data-theme="dark"] .hardware-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px -10px rgba(255, 107, 53, 0.4);
+}
+
+[data-theme="dark"] .feature-image,
+[data-theme="dark"] .device-preview {
+    background: #1A1A1A;
+}
+
+[data-theme="dark"] .footer {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+}
+
+[data-theme="dark"] .partner-name {
+    background: #1A1A1A;
+    border-color: #2A2A2A;
+}
+
+[data-theme="dark"] .partner-name:hover {
+    border-color: var(--primary-color);
+    background: #0F0F0F;
+}
+
+[data-theme="dark"] .video-wrapper {
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .dashboard-preview {
+    border-color: #2A2A2A;
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .value-icon {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(139, 127, 217, 0.15) 100%);
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+[data-theme="dark"] .specs-table {
+    background: #1A1A1A;
+}
+
+[data-theme="dark"] .specs-table tbody tr {
+    border-bottom-color: #2A2A2A;
+}
+
+[data-theme="dark"] .specs-table tbody tr:hover {
+    background: #0F0F0F;
+}
+
+[data-theme="dark"] .package-card,
+[data-theme="dark"] .wl-feature-card,
+[data-theme="dark"] .category-card {
+    background: #1A1A1A;
+    border-color: #2A2A2A;
+}
+
+[data-theme="dark"] .benefit-card {
+    background: #1A1A1A;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: #1A1A1A;
+    border-color: #2A2A2A;
+    color: #E8E8E8;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+    background: #0F0F0F;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
@@ -3252,6 +3391,194 @@ textarea:focus {
     
     .final-cta-section h2 {
         font-size: 32px;
+    }
+    
+    .final-cta-section .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ========================================
+   THEME TOGGLE SWITCH
+   ======================================== */
+
+.theme-toggle-container {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 70px;
+    height: 36px;
+    background: linear-gradient(135deg, #FF6B35 0%, #8B7FD9 100%);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px -8px rgba(255, 107, 53, 0.5);
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    box-shadow: 0 12px 32px -8px rgba(255, 107, 53, 0.7);
+    transform: translateY(-2px);
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle-slider {
+    transform: translateX(34px);
+    background: #1A1A1A;
+}
+
+.theme-icon {
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.theme-icon-sun {
+    color: #FF6B35;
+}
+
+.theme-icon-moon {
+    color: #8B7FD9;
+}
+
+[data-theme="dark"] .theme-icon-sun {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+}
+
+[data-theme="dark"] .theme-icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+[data-theme="light"] .theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+[data-theme="light"] .theme-icon-moon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+}
+
+.theme-toggle-label {
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.theme-toggle-container:hover .theme-toggle-label {
+    opacity: 1;
+}
+
+/* Animated background particles for dark theme */
+[data-theme="dark"] .hero-section::after,
+[data-theme="dark"] .page-header::after {
+    background-image: 
+        linear-gradient(rgba(255, 107, 53, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 53, 0.08) 1px, transparent 1px);
+}
+
+/* Glow effect for dark theme cards */
+[data-theme="dark"] .value-card:hover,
+[data-theme="dark"] .solution-card:hover,
+[data-theme="dark"] .capability-block:hover {
+    box-shadow: 
+        0 20px 40px -10px rgba(255, 107, 53, 0.5),
+        0 0 0 1px rgba(255, 107, 53, 0.3),
+        inset 0 0 30px rgba(255, 107, 53, 0.1);
+}
+
+/* Dark theme neon accents */
+[data-theme="dark"] .btn-primary-large,
+[data-theme="dark"] .btn-primary {
+    box-shadow: 0 8px 24px -8px rgba(255, 107, 53, 0.6);
+}
+
+[data-theme="dark"] .btn-primary-large:hover,
+[data-theme="dark"] .btn-primary:hover {
+    box-shadow: 0 12px 32px -8px rgba(255, 107, 53, 0.8);
+}
+
+/* Smooth theme transition */
+body,
+.navbar,
+.mega-menu,
+.hero-section,
+.page-header,
+.value-card,
+.solution-card,
+.capability-block,
+.hardware-item,
+.testimonial-item,
+.feature-image,
+.device-preview,
+.footer,
+.partner-name,
+.video-wrapper,
+.dashboard-preview,
+.value-icon,
+.specs-table,
+.package-card,
+.wl-feature-card,
+.category-card,
+.benefit-card,
+input,
+textarea {
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive theme toggle */
+@media (max-width: 768px) {
+    .theme-toggle-container {
+        bottom: 24px;
+        right: 24px;
+    }
+    
+    .theme-toggle {
+        width: 60px;
+        height: 32px;
+    }
+    
+    .theme-toggle-slider {
+        width: 26px;
+        height: 26px;
+    }
+    
+    [data-theme="dark"] .theme-toggle-slider {
+        transform: translateX(28px);
+    }
+    
+    .theme-icon {
+        font-size: 14px;
     }
     
     .final-cta-section .cta-buttons {
