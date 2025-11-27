@@ -2985,42 +2985,73 @@ textarea:focus {
     margin-bottom: 48px;
 }
 
-/* Features Section */
+/* Features Section - Alternating Layout */
 .features-section {
     padding: 100px 0;
     background: white;
 }
 
-.feature-block {
-    max-width: 900px;
-    margin: 0 auto 64px;
-    padding: 48px;
-    background: var(--bg-light);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-color);
+.feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.feature-block:last-child {
-    margin-bottom: 0;
+.feature-row:last-child {
+    border-bottom: none;
 }
 
-.feature-block h3 {
-    font-size: 32px;
+.feature-row.reverse {
+    direction: rtl;
+}
+
+.feature-row.reverse .feature-text {
+    direction: ltr;
+}
+
+.feature-text h3 {
+    font-size: 36px;
     font-weight: 600;
     margin-bottom: 20px;
     color: var(--text-primary);
+    line-height: 1.2;
 }
 
-.feature-block p {
+.feature-text p {
     font-size: 18px;
     line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
-.feature-block .link-arrow {
+.feature-text .link-arrow {
     font-size: 18px;
     font-weight: 600;
+}
+
+.feature-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 48px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.feature-image:hover img {
+    transform: scale(1.05);
 }
 
 /* Testimonials Section */
@@ -3137,9 +3168,22 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
     
-    .feature-block {
+    .feature-row {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 60px 0;
+    }
+    
+    .feature-row.reverse {
+        direction: ltr;
+    }
+    
+    .feature-image {
         padding: 32px;
-        margin-bottom: 48px;
+    }
+    
+    .feature-image img {
+        max-width: 300px;
     }
 }
 
@@ -3156,17 +3200,25 @@ textarea:focus {
         padding: 60px 0;
     }
     
-    .feature-block {
-        padding: 24px;
-        margin-bottom: 32px;
+    .feature-row {
+        padding: 40px 0;
+        gap: 32px;
     }
     
-    .feature-block h3 {
+    .feature-text h3 {
         font-size: 24px;
     }
     
-    .feature-block p {
+    .feature-text p {
         font-size: 16px;
+    }
+    
+    .feature-image {
+        padding: 24px;
+    }
+    
+    .feature-image img {
+        max-width: 240px;
     }
     
     .testimonials-section {
